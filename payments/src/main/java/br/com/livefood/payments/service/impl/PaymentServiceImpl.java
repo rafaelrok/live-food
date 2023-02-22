@@ -21,6 +21,7 @@ public class PaymentServiceImpl {
     @Autowired
     private PaymentRepository repository;
 
+    @Autowired
     private ModelMapper modelMapper;
 
     public Page<PaymentDTO> findAllPayment(Pageable pageable) {
@@ -36,14 +37,14 @@ public class PaymentServiceImpl {
     public PaymentDTO savePayment(PaymentDTO paymentDTO) {
         Payment payment = modelMapper.map(paymentDTO, Payment.class);
         payment.setStatus(Status.PENDING);
-        payment = repository.save(payment);
+        repository.save(payment);
         return modelMapper.map(payment, PaymentDTO.class);
     }
 
     public PaymentDTO updatePayment(Long id, PaymentDTO paymentDTO) {
         Payment payment = modelMapper.map(paymentDTO, Payment.class);
         payment.setId(id);
-        payment = repository.save(payment);
+        repository.save(payment);
         return modelMapper.map(payment, PaymentDTO.class);
     }
 
