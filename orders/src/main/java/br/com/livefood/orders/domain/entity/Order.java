@@ -37,6 +37,6 @@ public class Order implements Serializable {
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;
     @OneToMany(cascade=CascadeType.PERSIST, mappedBy="order")
-    private List<OrderItem> orderItems = new ArrayList<>();
+    private List<OrderItem> orderItens = new ArrayList<>();
 
 }
