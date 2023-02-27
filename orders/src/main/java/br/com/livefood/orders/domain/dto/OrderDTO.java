@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import lombok.*;
 
+/**
+ * @author rafae
+ */
 @Getter
 @Setter
 @AllArgsConstructor
@@ -17,5 +20,5 @@ public class OrderDTO {
     private Long id;
     private LocalDateTime dateTime;
     private OrderStatus orderStatus;
-    private List<OrderItem> orderItems = new ArrayList<>();
+    private List<OrderItem> orderItens = new ArrayList<>();
 }

@@ -2,6 +2,9 @@ package br.com.livefood.orders.domain.dto;
 
 import lombok.*;
 
+/**
+ * @author rafae
+ */
 @Getter
 @Setter
 @AllArgsConstructor
@@ -9,7 +12,7 @@ import lombok.*;
 public class OrderItemDTO {
 
     private Long id;
-    private String quantity;
+    private Integer quantity;
     private String description;
 
 }

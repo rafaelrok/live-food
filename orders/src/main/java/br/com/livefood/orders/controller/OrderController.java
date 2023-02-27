@@ -31,32 +31,32 @@ public class OrderController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<OrderDTO> listarPorId(@PathVariable @NotNull Long id) {
+    public ResponseEntity<OrderDTO> findById(@PathVariable @NotNull Long id) {
         OrderDTO dto = service.findOrderById(id);
 
         return  ResponseEntity.ok(dto);
     }
 
     @PostMapping()
-    public ResponseEntity<OrderDTO> realizaPedido(@RequestBody @Valid OrderDTO dto, UriComponentsBuilder uriBuilder) {
-        OrderDTO pedidoRealizado = service.saveOrder(dto);
+    public ResponseEntity<OrderDTO> createOrder(@RequestBody @Valid OrderDTO dto, UriComponentsBuilder uriBuilder) {
+        OrderDTO order = service.saveOrder(dto);
 
-        URI endereco = uriBuilder.path("/pedidos/{id}").buildAndExpand(pedidoRealizado.getId()).toUri();
+        URI url = uriBuilder.path("/orders/{id}").buildAndExpand(order.getId()).toUri();
 
-        return ResponseEntity.created(endereco).body(pedidoRealizado);
+        return ResponseEntity.created(url).body(order);
 
     }
 
     @PutMapping("/{id}/status")
-    public ResponseEntity<OrderDTO> atualizaStatus(@PathVariable Long id, @RequestBody OrderStatusDTO status){
+    public ResponseEntity<OrderDTO> updateStatus(@PathVariable Long id, @RequestBody OrderStatusDTO status){
         OrderDTO dto = service.updateOrder(id, status);
 
         return ResponseEntity.ok(dto);
     }
 
 
-    @PutMapping("/{id}/pago")
-    public ResponseEntity<Void> aprovaPagamento(@PathVariable @NotNull Long id) {
+    @PutMapping("/{id}/paid")
+    public ResponseEntity<Void> approvePayment(@PathVariable @NotNull Long id) {
         service.approveOrder(id);
 
         return ResponseEntity.ok().build();

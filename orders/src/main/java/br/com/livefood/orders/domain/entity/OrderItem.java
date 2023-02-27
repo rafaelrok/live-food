@@ -2,6 +2,8 @@ package br.com.livefood.orders.domain.entity;
 
 import java.io.Serial;
 import java.io.Serializable;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -31,8 +33,9 @@ public class OrderItem implements Serializable {
     private Long id;
     @NotNull
     @Positive
-    private String quantity;
+    private Integer quantity;
     private String description;
+    @JsonIgnore
     @ManyToOne(optional=false)
     private Order order;
 

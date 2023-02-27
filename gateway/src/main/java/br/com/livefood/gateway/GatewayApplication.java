@@ -1,4 +1,4 @@
-package br.com.livefood.payments;
+package br.com.livefood.gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,12 +7,13 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 /**
  * @author rafae
  */
-@EnableEurekaClient
-@SpringBootApplication
-public class PaymentsApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(PaymentsApplication.class, args);
-    }
+@SpringBootApplication
+@EnableEurekaClient
+public class GatewayApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(GatewayApplication.class, args);
+	}
 
 }
