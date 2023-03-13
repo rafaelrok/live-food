@@ -4,7 +4,7 @@ import br.com.livefood.orders.domain.dto.OrderDTO;
 import br.com.livefood.orders.domain.dto.OrderStatusDTO;
 import br.com.livefood.orders.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
+import org.springframework.beans.factory.annotation.Value;import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -35,6 +35,14 @@ public class OrderController {
         OrderDTO dto = service.findOrderById(id);
 
         return  ResponseEntity.ok(dto);
+    }
+
+    /**
+     * @return the port of the server that received the request with load-balance
+     */
+    @GetMapping("/port")
+    public String returnPort(@Value("${local.server.port}") String port) {
+        return String.format("Request Port: %s", port);
     }
 
     @PostMapping()
