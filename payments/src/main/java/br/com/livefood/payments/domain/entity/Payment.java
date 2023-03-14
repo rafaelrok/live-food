@@ -1,5 +1,6 @@
 package br.com.livefood.payments.domain.entity;
 
+import br.com.livefood.payments.enums.Status;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

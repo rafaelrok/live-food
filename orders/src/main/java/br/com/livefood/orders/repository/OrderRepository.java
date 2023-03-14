@@ -1,7 +1,7 @@
 package br.com.livefood.orders.repository;
 
 import br.com.livefood.orders.domain.entity.Order;
-import br.com.livefood.orders.domain.entity.OrderStatus;
+import br.com.livefood.orders.enums.OrderStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

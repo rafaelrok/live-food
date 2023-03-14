@@ -3,7 +3,7 @@ package br.com.livefood.orders.service.impl;
 import br.com.livefood.orders.domain.dto.OrderDTO;
 import br.com.livefood.orders.domain.dto.OrderStatusDTO;
 import br.com.livefood.orders.domain.entity.Order;
-import br.com.livefood.orders.domain.entity.OrderStatus;
+import br.com.livefood.orders.enums.OrderStatus;
 import br.com.livefood.orders.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -11,10 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 /**
  * @author rafae

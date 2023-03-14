@@ -1,7 +1,7 @@
 package br.com.livefood.orders.domain.dto;
 
 import br.com.livefood.orders.domain.entity.OrderItem;
-import br.com.livefood.orders.domain.entity.OrderStatus;
+import br.com.livefood.orders.enums.OrderStatus;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

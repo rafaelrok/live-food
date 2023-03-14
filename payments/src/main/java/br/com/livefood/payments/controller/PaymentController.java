@@ -2,6 +2,7 @@ package br.com.livefood.payments.controller;
 
 import br.com.livefood.payments.domain.dto.PaymentDTO;
 import br.com.livefood.payments.service.PaymentService;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -47,6 +48,16 @@ public class PaymentController {
     public ResponseEntity<PaymentDTO> findPaymentById(@PathVariable @NotNull Long id) {
         PaymentDTO payment = service.findPaymentById(id);
         return ResponseEntity.ok(payment);
+    }
+
+    @PatchMapping("/{id}/confirm")
+    @CircuitBreaker(name= "updateOrder", fallbackMethod = "paymentApproveWithIntegrationPedding")
+    public void confirmPayment(@PathVariable @NotNull Long id){
+        service.confirmPayment(id);
+    }
+
+    public void paymentApproveWithIntegrationPedding(Long id, Exception e){
+        service.updateStatus(id);
     }
 
     @DeleteMapping("/delete/{id}")

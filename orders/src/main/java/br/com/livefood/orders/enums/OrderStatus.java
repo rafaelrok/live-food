@@ -1,4 +1,4 @@
-package br.com.livefood.orders.domain.entity;
+package br.com.livefood.orders.enums;
 
 /**
  * @author rafae

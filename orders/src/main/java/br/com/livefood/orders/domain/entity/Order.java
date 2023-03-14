@@ -1,5 +1,6 @@
 package br.com.livefood.orders.domain.entity;
 
+import br.com.livefood.orders.enums.OrderStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

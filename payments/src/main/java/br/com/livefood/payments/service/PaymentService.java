@@ -35,6 +35,14 @@ public class PaymentService {
         return service.findPaymentById(id);
     }
 
+    public void confirmPayment(Long id) {
+        service.confirmPayment(id);
+    }
+
+    public void updateStatus(Long id) {
+        service.updateStatus(id);
+    }
+
     public void deletePayment(Long id) {
         service.deletePayment(id);
     }
